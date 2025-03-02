@@ -227,3 +227,53 @@ solana-payment-system/
 ```
 
 --------------------------------------------------------------------------------------------------------------
+
+**Troubleshooting**
+**Common Issues**
+
+1. Payment Not Detected
+
+Ensure the transaction has been confirmed on Solana blockchain
+Verify the exact amount matches what was requested
+Check if the transaction was sent to the correct wallet address
+Solana transactions may take time to confirm, especially during network congestion
+
+
+2. API Connection Issues
+
+Check if your Express server is running
+Verify the API base URL is correctly configured
+Ensure there are no firewall issues blocking connections
+
+
+3. Solscan API Limitations
+
+Public API may have rate limits
+Consider using a Solscan API key for production use
+The system will automatically fall back to direct RPC if Solscan fails
+
+--------------------------------------------------------------------------------------------------------------
+
+Advanced Configuration
+For production use, consider the following enhancements:
+
+1. Load Balancing:
+
+Deploy multiple instances of the Express API server
+Use PM2 or Docker for process management
+Implement a load balancer for high-traffic applications
+
+
+2. Security Enhancements:
+
+Add API authentication
+Implement rate limiting
+Use HTTPS for all API endpoints
+Validate input data more strictly
+
+
+3. Monitoring:
+
+Add logging with Winston or similar
+Set up alerts for failed payments
+Monitor system performance metrics
