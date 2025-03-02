@@ -216,6 +216,7 @@ Show payment status and confirmation
 
 **Code Structure**
 
+```
 solana-payment-system/
 ├── solana-verify.js        # Core verification logic
 ├── server.js               # Express API server
@@ -223,5 +224,6 @@ solana-payment-system/
 ├── package.json            # Dependencies
 ├── .env                    # Configuration
 └── README.md               # Documentation
+```
 
 --------------------------------------------------------------------------------------------------------------
