@@ -80,3 +80,45 @@ node telegram-bot.js
 --------------------------------------------------------------------------------------------------------------
 
 **How It Works**
+
+**Verification Process**
+This system implements two methods for transaction verification:
+
+**1. Solscan API Verification**
+The primary verification method uses Solscan's public API to check for transactions:
+
+- Faster and more efficient than direct RPC calls
+- Reduced load on Solana nodes
+- More detailed transaction information
+- Handles both SOL and SPL token transfers
+
+**2. Direct RPC Verification (Fallback)**
+If Solscan is unavailable or returns an error, the system falls back to direct Solana RPC verification:
+
+- Connects directly to Solana nodes
+- Gets transaction signatures for the treasury wallet
+- Analyzes pre/post balances to detect transfers
+- Works even if third-party services are down
+
+**Payment Flow**
+
+1. Create Payment Request:
+
+Client calls the API to create a payment request
+System generates a unique payment ID and stores payment details
+Returns the treasury wallet address for the user to send funds to
+
+2. User Payment:
+
+User sends the specified amount of SOL to the treasury wallet
+
+3. Verification:
+
+Client periodically checks payment status via API
+Server verifies the transaction on the blockchain
+Confirms payment when a matching transaction is found
+
+4. Confirmation:
+
+System marks the payment as confirmed
+Client can activate the purchased service/subscription
