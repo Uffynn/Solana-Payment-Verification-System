@@ -39,3 +39,44 @@ This payment system consists of three main components:
 Node.js 14+ installed
 npm or yarn
 A Solana wallet address to receive payments
+
+**Setup**
+
+1. Clone the repository:
+
+```
+git clone https://github.com/yourusername/solana-payment-system.git
+cd solana-payment-system
+```
+
+2. Install dependencies:
+
+```
+npm install
+```
+
+3. Create a .env file with your configuration:
+
+```
+TREASURY_WALLET=YOUR_SOLANA_WALLET_ADDRESS
+SOLANA_NETWORK=mainnet-beta
+PORT=3000
+TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
+API_BASE_URL=http://localhost:3000/api
+```
+
+4. Start the API server:
+
+```
+node server.js
+```
+
+5. (Optional) Start the Telegram bot in a separate terminal:
+
+```
+node telegram-bot.js
+```
+
+--------------------------------------------------------------------------------------------------------------
+
+**How It Works**
