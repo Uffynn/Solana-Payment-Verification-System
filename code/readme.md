@@ -254,7 +254,7 @@ The system will automatically fall back to direct RPC if Solscan fails
 
 --------------------------------------------------------------------------------------------------------------
 
-Advanced Configuration
+**Advanced Configuration**
 For production use, consider the following enhancements:
 
 1. Load Balancing:
