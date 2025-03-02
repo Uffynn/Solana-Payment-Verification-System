@@ -211,3 +211,17 @@ Implement subscription tracking logic
 Create a frontend application that calls the API endpoints
 Display payment address and QR code to users
 Show payment status and confirmation
+
+--------------------------------------------------------------------------------------------------------------
+
+**Code Structure**
+
+solana-payment-system/
+├── solana-verify.js        # Core verification logic
+├── server.js               # Express API server
+├── telegram-bot.js         # Telegram bot integration
+├── package.json            # Dependencies
+├── .env                    # Configuration
+└── README.md               # Documentation
+
+--------------------------------------------------------------------------------------------------------------
