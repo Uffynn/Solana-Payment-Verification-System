@@ -122,3 +122,92 @@ Confirms payment when a matching transaction is found
 
 System marks the payment as confirmed
 Client can activate the purchased service/subscription
+
+--------------------------------------------------------------------------------------------------------------
+
+**API Reference**
+**Express API Endpoints**
+
+**Create Payment Request**
+```
+POST /api/payment/create
+```
+
+Request Body:
+```
+{
+  "userId": "user123",
+  "amountSol": 1,
+  "metadata": { "optional": "data" }
+}
+```
+
+Response:
+```
+{
+  "paymentId": "payment_user123_1614567890123_a1b2c3d4",
+  "userId": "user123",
+  "walletAddress": "YOUR_TREASURY_WALLET_ADDRESS",
+  "amountSol": 1,
+  "expiresAt": "2023-01-01T12:30:00.000Z"
+}
+```
+
+**Check Payment Status**
+```
+GET /api/payment/status/:paymentId
+```
+
+Response:
+```
+{
+  "paymentId": "payment_user123_1614567890123_a1b2c3d4",
+  "userId": "user123",
+  "confirmed": true,
+  "status": "confirmed",
+  "createdAt": "2023-01-01T12:00:00.000Z",
+  "confirmedAt": "2023-01-01T12:05:23.000Z",
+  "transactionSignature": "5KKsaj..."
+}
+```
+
+**Get User Pending Payments**
+```
+GET /api/payment/pending/:userId
+```
+
+Response:
+```
+[
+  {
+    "paymentId": "payment_user123_1614567890123_a1b2c3d4",
+    "userId": "user123",
+    "amountSol": 1,
+    "createdAt": "2023-01-01T12:00:00.000Z",
+    "expiresAt": "2023-01-01T12:30:00.000Z"
+  }
+]
+```
+
+**Customization Guide**
+**Adapting to Your Needs**
+
+**1. Database Integration:**
+
+Replace the in-memory storage (pendingPayments) with a database
+Add database connection code in solana-verify.js
+Modify methods to read/write from database
+
+
+**2. Custom Payment Logic:**
+
+Extend SolanaVerifier class with your own verification rules
+Add additional metadata to payment records
+Implement subscription tracking logic
+
+
+**3. Frontend Integration:**
+
+Create a frontend application that calls the API endpoints
+Display payment address and QR code to users
+Show payment status and confirmation
